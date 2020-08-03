@@ -1,26 +1,28 @@
 <template>
-  <div class="container">
-    <h1 class="title">Simon Says</h1>
     <div id="app">
-      <ul class="game-area" @click="getElemActive">
-        <li class="blue top-left"
-            data-id="1"
-            v-bind:class="{active: buttons.blue.isActive}"></li>
-        <li class="red top-right"
-            data-id="2"
-            v-bind:class="{active: buttons.red.isActive}"></li>
-        <li class="yellow bottom-left"
-            data-id="3"
-            v-bind:class="{active: buttons.yellow.isActive}"></li>
-        <li class="green bottom-right"
-            data-id="4"
-            v-bind:class="{active: buttons.green.isActive}"></li>
-      </ul>
-      <GameData v-on:game-start="startGame"
-                v-bind:round="round"
-                v-bind:loseMsg="loseMsg"/>
+      <div class="container">
+        <h1 class="title">Simon Says</h1>
+        <div class="game-section">
+          <ul class="game-area" @click="getElemActive">
+            <li class="blue top-left"
+                data-id="1"
+                v-bind:class="{active: buttons.blue.isActive}"></li>
+            <li class="red top-right"
+                data-id="2"
+                v-bind:class="{active: buttons.red.isActive}"></li>
+            <li class="yellow bottom-left"
+                data-id="3"
+                v-bind:class="{active: buttons.yellow.isActive}"></li>
+            <li class="green bottom-right"
+                data-id="4"
+                v-bind:class="{active: buttons.green.isActive}"></li>
+          </ul>
+          <GameData v-on:game-start="startGame"
+                    v-bind:round="round"
+                    v-bind:loseMsg="loseMsg"/>
+        </div>
+      </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -185,17 +187,30 @@
 
 <style lang="sass">
   @import "public/main.sass"
-
   #app
-    margin-top: 80px
+    max-width: 540px
+    width: 100%
+    margin: 80px auto 0
+    text-align: center
+
+  .game-section
+    margin-top: 40px
     display: flex
     justify-content: space-between
     align-items: center
     min-height: 300px
 
+
+  .title
+    margin-top: 30px
+    font-family: Arial, sans-serif
+    font-weight: bold
+    font-size: 30px
+
   @media screen and (max-width: 568px)
     #app
       margin-top: 40px
+    .game-section
       flex-direction: column
 
     .game-area
