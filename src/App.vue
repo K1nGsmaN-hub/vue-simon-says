@@ -1,22 +1,25 @@
 <template>
-  <div id="app">
-    <ul class="game-area" @click="getElemActive">
-      <li class="blue top-left"
-          data-id="1"
-          v-bind:class="{active: buttons.blue.isActive}"></li>
-      <li class="red top-right"
-          data-id="2"
-          v-bind:class="{active: buttons.red.isActive}"></li>
-      <li class="yellow bottom-left"
-          data-id="3"
-          v-bind:class="{active: buttons.yellow.isActive}"></li>
-      <li class="green bottom-right"
-          data-id="4"
-          v-bind:class="{active: buttons.green.isActive}"></li>
-    </ul>
-    <GameData v-on:game-start="startGame"
-              v-bind:round="round"
-              v-bind:loseMsg="loseMsg"/>
+  <div class="container">
+    <h1 class="title">Simon Says</h1>
+    <div id="app">
+      <ul class="game-area" @click="getElemActive">
+        <li class="blue top-left"
+            data-id="1"
+            v-bind:class="{active: buttons.blue.isActive}"></li>
+        <li class="red top-right"
+            data-id="2"
+            v-bind:class="{active: buttons.red.isActive}"></li>
+        <li class="yellow bottom-left"
+            data-id="3"
+            v-bind:class="{active: buttons.yellow.isActive}"></li>
+        <li class="green bottom-right"
+            data-id="4"
+            v-bind:class="{active: buttons.green.isActive}"></li>
+      </ul>
+      <GameData v-on:game-start="startGame"
+                v-bind:round="round"
+                v-bind:loseMsg="loseMsg"/>
+    </div>
   </div>
 </template>
 
